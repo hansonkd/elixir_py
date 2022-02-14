@@ -13,16 +13,16 @@ class PyTest(Command):
     def finalize_options(self):
         pass
     def run(self):
-        import tests.erlang_tests
+        import tests.elixir_tests
         import unittest
         suite = unittest.TestSuite()
-        suite.addTests(tests.erlang_tests.get_suite())
+        suite.addTests(tests.elixir_tests.get_suite())
         unittest.TextTestRunner().run(suite)
 
-long_description = open('README.rst', 'r').read()
+long_description = open('README.markdown', 'r').read()
 setup(
-    name='erlang_py',
-    py_modules=['erlang'],
+    name='elixir_py',
+    py_modules=['elixir'],
     cmdclass={'test': PyTest},
     license='MIT',
     classifiers=[
@@ -36,11 +36,11 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: System :: Distributed Computing',
     ],
-    version='2.0.4',
-    description='Erlang Binary Term Format for Python',
+    version='1.0.0',
+    description='Elixir Flavored Erlang Binary Term Format for Python',
     long_description=long_description,
-    long_description_content_type='text/x-rst',
+    long_description_content_type='text/markdown',
     author='Michael Truog',
     author_email='mjtruog@protonmail.com',
-    url='https://github.com/okeuday/erlang_py',
+    url='https://github.com/hansonkd/elixir_py',
 )

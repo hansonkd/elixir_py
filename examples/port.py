@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # This is free and unencumbered software released into the public domain.
 
-import erlang, os, struct
+import elixir, os, struct
 
 def send(term, stream):
     """Write an Erlang term to an output stream."""
-    payload = erlang.term_to_binary(term)
+    payload = elixir.term_to_binary(term)
     header = struct.pack('!I', len(payload))
     stream.write(header)
     stream.write(payload)
@@ -20,7 +20,7 @@ def recv(stream):
     payload = stream.read(length)
     if len(payload) != length:
         return None
-    term = erlang.binary_to_term(payload)
+    term = elixir.binary_to_term(payload)
     return term
 
 def recv_loop(stream):
